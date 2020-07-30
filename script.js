@@ -13,7 +13,7 @@ function testDoGet() {
 function testDoPost() {
     let url = 'https://script.google.com/macros/s/AKfycbyAAgutSyG9oGFbML0PWX-tn3dwva69Q3CLnVuM/exec';
     let data = {
-        'Tên Khách Hàng' : 'Hoàng Dũng',
+        'Tên Khách Hàng' : 'Lê Minh Hoàng Dũng',
         'Số Điện Thoại' : '0778639310',
         'Địa Chỉ' : '544/12 Lạc Long Quân, Phường 5, Quận 11, TP.HCM'
     };
@@ -28,13 +28,14 @@ function testDoPost() {
         redirect : 'follow',
         body : JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(resultJSON => resultJSON.json())
     .then(result => {
         console.log(result);
-        document.querySelector('#app').textContent = result;
+        document.querySelector('#app').textContent = result.status;
     });
 
 }
+
 
 
 document.querySelector('#btn-1').addEventListener('click', testDoGet);
